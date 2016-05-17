@@ -1,0 +1,57 @@
+extends ../layout
+
+block content
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns')
+                a(class='button tiny secondary postfix', href='/user/id/#{user._id}') Back
+
+        form(class='small-12 columns',action='/user/id/#{user._id}',method='post',enctype='application/x-www-form-urlencoded')
+            input(type='hidden',value='PUT',name='_method')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='status') Status
+                div(class='small-8 columns')
+                    select(name="status",value='#{user.status}')
+                        - var options = [{value: '', label: '-- Select Status --'}, {value: '0', label: 'Public'}, {value: '1', label: 'Member'}, {value: '2', label: 'Admin'}, {value: '3', label: 'Root'}]
+                        each option in options
+                            option(value=option.value, selected=(status==option.value))= option.label
+
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='username') Username
+                div(class='small-8 columns')
+                    input(type='text',value='#{user.username}',name='username')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='username') Firstname
+                div(class='small-8 columns')
+                    input(type='text',value='#{user.firstname}',name='firstname')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='username') Lastname
+                div(class='small-8 columns')
+                    input(type='text',value='#{user.lastname}',name='lastname')
+
+            div(class='small-12 columns')
+                div(class='small-6 medium-4 large-2 columns right text-right')
+                    button(type='submit', class='button tiny success right postfix').
+                        Update
+
+        hr
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns')
+                form(class='',action='/user/id/#{user._id}',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    div(class='small-12 columns')
+                        button(type='submit', class='button tiny alert postfix').
+                            Delete
+
+

@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+
+        if error
+            div(class='text-center alert-box alert') #{error}
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns')
+                a(class='button tiny secondary postfix', href='/profile') Back
+            div(class='small-6 medium-4 large-2 columns right')
+                a(class='button tiny info postfix', href='/profile/avatar') Edit avatar
+
+        form(class='small-12 columns',action='/profile',method='post',enctype='application/x-www-form-urlencoded')
+            input(type='hidden',value='PUT',name='_method')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='username') Username
+                div(class='small-8 columns')
+                    input(type='text',value='#{user.username}',name='username')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='username') Firstname
+                div(class='small-8 columns')
+                    input(type='text',value='#{user.firstname}',name='firstname')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='username') Lastname
+                div(class='small-8 columns')
+                    input(type='text',value='#{user.lastname}',name='lastname')
+
+            div(class='small-12 columns')
+                div(class='small-6 medium-4 large-2 columns right text-right')
+                    button(type='submit', class='button tiny success right postfix').
+                        Update
+
+        hr
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns')
+                form(class='',action='/profile',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    div(class='small-12 columns')
+                        button(type='submit', class='button tiny alert postfix').
+                            Delete
+
+

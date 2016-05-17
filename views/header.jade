@@ -1,0 +1,28 @@
+nav(class='top-bar fixed' data-topbar role='navigation')
+    section(class='top-bar-section')
+        ul(class='left')
+            li(class='left')
+                a(href='/') Home
+            if !auth
+                li(class='left')
+                    a(href='/login') Login
+
+
+
+
+        if auth
+            li(class='right has-dropdown')
+                a(href='/profile')
+                    if auth.avatar
+                        img(class='avatar-small', src='#{auth.avatar}')
+                    else
+                        img(class='avatar-small', src='http://localhost:3100/default/avatar.png')
+                ul(class='dropdown')
+                    li(class='left')
+                        a(href='/profile') Profile
+                    li(class='left')
+                        a(href='/user') Users
+                    li(class='left')
+                        a(href='/chat') Chat
+                    li(class='left')
+                        a(href='/login/out') Logout

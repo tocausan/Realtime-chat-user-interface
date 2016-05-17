@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns right')
+                a(class='button tiny info postfix', href='/user/create') Create
+
+        table(class='small-12 columns')
+            thead
+                tr
+                    td Username
+                    td Firstname
+                    td Lastname
+                    td Status
+            tbody
+            - each user, i in users
+                tr
+                    td= user.username
+                    td= user.firstname
+                    td= user.lastname
+                    td= user.status
+                    td(class='small-1')
+                        a(class='button tiny info', href='/user/id/#{user._id}') Details

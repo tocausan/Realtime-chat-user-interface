@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns right')
+                a(class='button tiny info postfix', href='/profile/edit') Edit
+
+        div(class='small-12 columns text-center')
+            if auth.avatar
+                img(class='avatar-medium', src='#{auth.avatar}')
+            else
+                img(class='avatar-medium', src='http://localhost:3100/default/avatar.png')
+
+            ul
+                li #{auth.username}
+                li #{auth.firstname}
+                li #{auth.lastname}
+                li
+                    small #{auth.session}

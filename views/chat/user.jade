@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    script(src='/scripts/chat.js')
+
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+        p(class='text-center') #{description}
+
+        input#auth-username(class='hidden-for-small-up', value=auth.username, disabled)
+        div(class='chat small-12 columns')
+            div#public-chat(class='container')
+
+            div(class='row collapse')
+                div(class='small-10 columns')
+                    input#message-input(class='small-12 columns')
+                div(class='small-2 columns')
+                    input#message-button(class='button tiny info postfix', type='button', value='send')

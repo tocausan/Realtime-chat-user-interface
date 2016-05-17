@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+
+        if error
+            div(class='text-center alert-box alert') #{error}
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns')
+                a(class='button tiny secondary postfix', href='/profile/edit') Back
+
+        form(class='small-12 columns', action="/upload/avatar?redirect=profile", method="POST", enctype="multipart/form-data")
+            div(class='small-12 medium-6 columns')
+                input(class='button tiny info right postfix', type="file", name="avatar")
+            div(class='small-12 medium-6 columns')
+                input(class='button tiny success right postfix', type="submit", value="Upload")
+
+
+

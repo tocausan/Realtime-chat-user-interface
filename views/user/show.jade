@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns')
+                a(class='button tiny secondary postfix', href='/user') Back
+
+            div(class='small-6 medium-4 large-2 columns text-right')
+                a(class='button tiny info postfix', href='/user/id/#{user._id}/edit') Edit
+
+        table(class='small-12 columns')
+            tr
+                td username
+                td #{user.username}
+            tr
+                td firstname
+                td #{user.firstname}
+            tr
+                td lastname
+                td #{user.lastname}
+
+

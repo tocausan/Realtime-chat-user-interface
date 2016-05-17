@@ -1,0 +1,31 @@
+doctype html
+html(ng-app)
+    head
+        title= title
+
+        <!-- foundation style -->
+        link(rel='stylesheet', href='/bower_components/foundation/css/foundation.min.css')
+        <!-- app style -->
+        link(rel='stylesheet', href='/styles/font-face.css')
+        link(rel='stylesheet', href='/styles/style.css')
+
+    body
+        include header
+        section(class='row')
+            block content
+
+        footer
+            <!-- modernizer script-->
+            script(src='/bower_components/modernizr/modernizr.js')
+            <!-- jquery script-->
+            script(src='/bower_components/jquery/dist/jquery.min.js')
+            <!-- foundation script -->
+            script(src='/bower_components/foundation/js/foundation/foundation.js')
+            script(src='/bower_components/foundation/js/foundation/foundation.topbar.js')
+            script(src='/bower_components/foundation/js/foundation/foundation.dropdown.js')
+            <!-- angular script -->
+            script(src='/bower_components/angular/angular.js')
+            <!-- socket.io script -->
+            script(src='/socket.io/socket.io.js')
+            <!-- app script -->
+            script(src='/scripts/foundation-setup.js')

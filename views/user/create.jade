@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+    span(class='small-12 columns')
+        h1(class='text-center') #{title}
+
+        div(class='small-12 columns')
+            div(class='small-6 medium-4 large-2 columns')
+                a(class='button tiny secondary postfix', href='/user') Back
+
+        form(class='small-12 columns',action='/user',method='post',enctype='application/x-www-form-urlencoded')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='username') Username
+                div(class='small-8 columns')
+                    input(type='text',name='username')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='firstname') Firstname
+                div(class='small-8 columns')
+                    input(type='text',name='firstname')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='lastname') Lastname
+                div(class='small-8 columns')
+                    input(type='text',name='lastname')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='password') Password
+                div(class='small-8 columns')
+                    input(type='text',name='password')
+
+            div(class='small-12 columns')
+                div(class='small-4 columns')
+                    label(for='passconf') Password confirmation
+                div(class='small-8 columns')
+                    input(type='text',name='passconf')
+
+            div(class='small-12 columns')
+                div(class='small-6 medium-4 large-2 columns right text-right')
+                    button(type='submit', class='button tiny success right postfix').
+                        Create
